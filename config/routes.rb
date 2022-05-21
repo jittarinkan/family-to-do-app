@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  root "family_members#index"
+  resources :dashboard, only: :index
+  resources :family_members, only: [:new, :create] do
+    resources :tasks, module: :family_members
+  end
+  resources :tasks
 
-  resources :family_members, only: [:index, :show, :new, :create]
+  root "dashboard#index"
 end

@@ -1,9 +1,28 @@
 <h1>Add Family Member</h1>
 
-<%= render "form", family_member: @family_member %>
+<%= form_with(model: @family_member) do |form| %>
+  <% if @family_member.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@family_member.errors.count, "error") %> prohibited this family_member from being saved:</h2>
 
-<br>
+      <ul>
+        <% @family_member.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit 'Save' %>
+  </div>
+<% end %>
 
 <div>
-  <%= link_to "Back to family members", family_members_path %>
+  <%= link_to "Back to family members", dashboard_index_path %>
 </div>

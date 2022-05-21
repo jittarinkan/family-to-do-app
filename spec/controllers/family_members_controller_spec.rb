@@ -30,7 +30,7 @@ RSpec.describe FamilyMembersController, type: :controller do
 
       it 'redirects to index' do
         subject
-        expect(response).to redirect_to family_members_path
+        expect(response).to redirect_to dashboard_index_path
       end
 
       it 'flashes success messages' do
