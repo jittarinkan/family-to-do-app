@@ -8,6 +8,16 @@ class FamilyMembers::TasksController < TasksController
                           .per(params[:per])
   end
 
+  def update
+    if task.update(update_task_params)
+      flash[:success] = 'Task Finished!'
+    else
+      flash[:error] = 'Could not update task'
+    end
+    binding.pry
+    redirect_to family_member_tasks_path
+  end
+
   private
 
   def family_member

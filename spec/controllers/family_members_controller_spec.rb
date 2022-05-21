@@ -3,17 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe FamilyMembersController, type: :controller do
-  let!(:family_members) { create_list(:family_member, 3) }
-
-  describe 'GET #index' do
-    subject { get :index }
-
-    it 'assigns family_members' do
-      subject
-      expect(assigns(:family_members)).to eq family_members
-    end
-  end
-
   describe 'POST #create' do
     subject { post :create, params: params }
 
