@@ -17,7 +17,7 @@ class FamilyMembersController < ApplicationController
     @family_member = FamilyMember.new(create_family_member_params)
 
     if @family_member.save
-      redirect_to family_members_path, success: "Successfully created family member."
+      redirect_to family_members_path, success: 'Successfully created family member.'
     else
       render :new, status: :unprocessable_entity
     end
