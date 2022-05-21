@@ -5,6 +5,10 @@ require 'rails_helper'
 RSpec.describe FamilyMember, type: :model do
   include_examples 'valid_factory'
 
+  describe 'associations' do
+    it { is_expected.to have_many(:tasks) }
+  end
+
   describe 'validations' do
     subject(:family_member) { create(:family_member) }
 
