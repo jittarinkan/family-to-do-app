@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: family_members
@@ -9,6 +11,8 @@
 #  updated_at  :datetime         not null
 #
 class FamilyMember < ApplicationRecord
+  has_many :tasks, dependent: :destroy
+
   validates :name, presence: true
   validates :tasks_count, presence: true
 end
