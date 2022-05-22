@@ -8,16 +8,16 @@ RSpec.describe TasksController, type: :controller do
 
     let!(:family_member) { create :family_member }
 
-    let!(:task1) { create_list :task, 5, family_member: family_member }
+    let!(:tasks) { create_list :task, 5, family_member: family_member }
 
     it 'assigns tasks' do
       subject
-      expect(assigns(:tasks)).to eq [task2, task1]
+      expect(assigns(:tasks)).to eq tasks.reverse
     end
 
     it 'sorts by created_at desc' do
       subject
-      expect(assigns(:tasks)).to eq [task2, task1]
+      expect(assigns(:tasks)).to eq tasks.reverse
     end
   end
 
@@ -48,11 +48,6 @@ RSpec.describe TasksController, type: :controller do
       it 'redirects to index' do
         subject
         expect(response).to redirect_to action: :index
-      end
-
-      it 'flashes correct message' do
-        subject
-        expect(flash[:success]).to match(/Successfully created task./)
       end
     end
 

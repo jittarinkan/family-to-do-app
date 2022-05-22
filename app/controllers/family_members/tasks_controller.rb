@@ -14,7 +14,6 @@ class FamilyMembers::TasksController < TasksController
     else
       flash[:error] = 'Could not update task'
     end
-    binding.pry
     redirect_to family_member_tasks_path
   end
 

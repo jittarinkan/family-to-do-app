@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @task = Task.new(create_task_params)
 
     if @task.save
-      redirect_to action: :index, success: 'Successfully created task.'
+      redirect_to action: :index
     else
       render :new, status: :unprocessable_entity
     end

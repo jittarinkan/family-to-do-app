@@ -50,12 +50,7 @@ RSpec.describe FamilyMembers::TasksController, type: :controller do
 
       it 'redirects to index' do
         subject
-        expect(response).to redirect_to tasks_path
-      end
-
-      it 'flashes correct message' do
-        subject
-        expect(flash[:success]).to match(/Successfully created task./)
+        expect(response).to redirect_to action: :index
       end
     end
 
