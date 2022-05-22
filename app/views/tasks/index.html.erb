@@ -1,24 +1,24 @@
-<h1>All Tasks</h1>
-
+<h1 class="text-3xl font-bold">All Tasks</h1>
+<br>
 <%= link_to "Add Task", new_task_path %>
-
-<table class="table">
+<br>
+<table class="min-w-full">
   <thead>
     <tr>
-      <th scope="col">Task</th>
-      <th scope="col">Status</th>
-      <th scope="col">Family Member</th>
-      <th scope="col">Actions</th>
+      <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left", scope="col">Task</th>
+      <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left", scope="col">Status</th>
+      <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left", scope="col">Family Member</th>
+      <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left", scope="col">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
-      <td> <%= task.description %> </td>
-      <td> <%= task.status %></td>
-      <td> <%= task.family_member.name %></td>
-      <td>
+      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> <%= task.description %> </td>
+      <td class="text-sm font-light px-6 py-4 whitespace-nowrap <%= task.complete? ? 'text-green-900' : 'text-red-900'%>"> <%= task.status %></td>
+      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> <%= task.family_member.name %></td>
+      <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
         <%=
           button_to 'Mark as complete',
           { action: 'update', id: task.id },
